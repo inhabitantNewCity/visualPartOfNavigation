@@ -9,8 +9,6 @@
 #include "Map.h"
 #include "way_load.h"
 
-#pragma comment (lib,"baseloadvc.lib")
-
 #define PI 3.141592653589793238462643383279502884
 #define EPS 2
 //#include "Vector.h"
@@ -644,7 +642,7 @@ private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e)
 				" [ " + accMinVerticalForThridPart + " , " + accMaxVerticalForThridPart + " ] " +
 				"Horizontal acceleration" +
 				" [ " + accMinHorizontalForThridPart + " , " + accMaxHorizontalForThridPart + " ] ");
-				simpleGenerate(map, way, pictureBox1);
+				databaseGenerate(map, way, pictureBox1);
 				checker = gcnew MapChecker(map, way);
 				timer1->Interval = 2;
 				timer1->Start();

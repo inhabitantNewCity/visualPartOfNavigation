@@ -118,6 +118,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="gdbms01.h" />
+    <ClInclude Include="GeneralizationDataBaseLoadFuncs.h" />
     <ClInclude Include="graph_dll.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="resource.h" />

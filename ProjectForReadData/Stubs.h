@@ -70,19 +70,25 @@ int databaseGenerate(List<Line^>^ map, List<Line^>^ way, PictureBox^ image) {
 	basename[8] = 'O';
 	basename[9] = 'R';
 	basename[10] = '2';
+	basename[11] = '.';
+	basename[12] = 'D';
+	basename[13] = 'P';
+	basename[14] = 'F';
 
 	int *countMap, *countWay;
-	Coord* mapCor = GetMap(countMap, basename);
-	Coord* wayCor = GetWay(mapCor[0], mapCor[*countMap - 1], countWay, basename);
+	GBaseWay* mapCor = GetMap(countMap, basename);
+	Coord* wayCor = GetWay(mapCor[0].way[0], mapCor[*countMap - 1].way[0], countWay, basename);
 
 
-	for (int i = 0; i < *countMap - 1; i++) {
-		Line^ line = gcnew Line();
-		line->X1 = mapCor[i].x_;
-		line->Y1 = mapCor[i].y_;
-		line->X2 = mapCor[i + 1].x_;
-		line->Y2 = mapCor[i + 1].y_;
-		map->Add(line);
+	for (int i = 0; i < *countMap; i++) {
+		for (int j = 0; j < mapCor[i].size - 1; j++) {
+			Line^ line = gcnew Line();
+			line->X1 = mapCor[i].way[j].x_;
+			line->Y1 = mapCor[i].way[j].y_;
+			line->X2 = mapCor[i + 1].way[j].x_;
+			line->Y2 = mapCor[i + 1].way[j].y_;
+			map->Add(line);
+		}
 	}
 
 	for (int i = 0; i < *countWay - 1; i++) {

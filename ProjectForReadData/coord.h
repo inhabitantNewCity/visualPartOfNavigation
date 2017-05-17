@@ -18,6 +18,11 @@ struct Coord
   {return !(*this==rhs); }
 };
 
+
+struct GBaseWay {
+	Coord* way;
+	int size;
+};
 //---------------------------------------------------------------------------
 #endif
  
